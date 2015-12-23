@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   									uniqueness: { case_sensitive: false },
   									format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }
   									
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   has_secure_password # need bcrypt ruby gem installed & respective 'password-digest' migration run.
 
   # Returns the hash digest of the given string.
